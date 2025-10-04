@@ -137,7 +137,6 @@ void deletenode(int position, node* &head,node* &tail){
     if(curr->next != NULL) {  // Agar last node nahi hai
         curr->next->prev = prev;  // Next node ka prev update karo
     }
-    
     curr->next=NULL;
     curr->prev=NULL;
     delete curr;
