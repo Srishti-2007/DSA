@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loop Demo</title>
+    <style>
+        /* CSS for attractive styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message {
+            background: linear-gradient(90deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .message:hover {
+            transform: translateY(-5px);
+        }
+        
+        .loop-info {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> For Loop </h1>
+        <div class="loop-info">
+            <strong>For Loop:</strong> A loop that runs for a specific number of times. 
+            Perfect when you know exactly how many times you want to repeat something!
+        </div>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // JavaScript code using FOR LOOP
+        // For loop syntax: for(initialization; condition; increment/decrement)
+        
+        // Get the output div where we'll display our messages
+        const outputDiv = document.getElementById('output');
+        
+        // For loop to print "Welcome to my webpage" 10 times
+        for(let i = 1; i <= 10; i++) {
+            // Create a new div element for each message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            // Set the message content with counter
+            messageDiv.textContent = `${i}. Welcome to my webpage! `;
+            
+            // Add the message to our output div
+            outputDiv.appendChild(messageDiv);
+            
+            // Add a small delay for animation effect
+            messageDiv.style.animationDelay = `${i * 0.1}s`;
+        }
+        
+        // Console log for learning
+        console.log("For loop completed! Check the webpage for output.");
+    </script>
+</body>
+</html>

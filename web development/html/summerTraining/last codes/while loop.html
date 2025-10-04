@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Loop Demo</title>
+    <style>
+        /* CSS for attractive styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message {
+            background: linear-gradient(90deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .message:hover {
+            transform: scale(1.05);
+        }
+        
+        .loop-info {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> While Loop </h1>
+        <div class="loop-info">
+            <strong>While Loop:</strong> A loop that continues running as long as a condition is true. 
+            Great when you don't know exactly how many times you need to loop!
+        </div>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // JavaScript code using WHILE LOOP
+        // While loop syntax: while(condition) { code to execute }
+        
+        // Get the output div where we'll display our messages
+        const outputDiv = document.getElementById('output');
+        
+        // Initialize counter variable
+        let counter = 1;
+        
+        // While loop to print "Welcome to my webpage" 10 times
+        while(counter <= 10) {
+            // Create a new div element for each message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            // Set the message content with counter
+            messageDiv.textContent = `${counter}. Welcome to my webpage! 🌟`;
+            
+            // Add the message to our output div
+            outputDiv.appendChild(messageDiv);
+            
+            // Important: Increment the counter to avoid infinite loop
+            counter++;
+            
+            // Add animation delay
+            messageDiv.style.animationDelay = `${counter * 0.1}s`;
+        }
+        
+        // Console log for learning
+        console.log("While loop completed! Counter final value:", counter);
+    </script>
+</body>
+</html>

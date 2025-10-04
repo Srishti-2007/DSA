@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Form</title>
+  <style>
+    label {
+      display: inline-block;
+      width: 120px; /* Gives space between label and input */
+      margin-bottom: 8px;
+    }
+    input, select, textarea {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <fieldset>
+      <legend>Basic Information</legend>
+
+      <label for="text">Username:</label>
+      <input type="text" id="text"><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email"><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password"><br>
+
+      <label for="contact">Contact:</label>
+      <input type="tel" id="contact"><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend>Additional Information</legend>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age"><br>
+
+      <label for="dob">DOB:</label>
+      <input type="date" id="dob"><br>
+
+      <label for="tob">TOB:</label>
+      <input type="time" id="tob"><br>
+
+      <label for="color">Fav Color:</label>
+      <input type="color" id="color"><br>
+
+      <label>Gender:</label>
+      <input type="radio" name="gender"> Male
+      <input type="radio" name="gender"> Female<br>
+
+      <label>Hobby:</label>
+      <input type="checkbox"> Play
+      <input type="checkbox"> Sing<br>
+
+      <label for="city">City:</label>
+      <select id="city">
+        <option>Select your City</option>
+        <option value="jalandhar">Jalandhar</option>
+        <option value="kapurthala">Kapurthala</option>
+        <option value="ludhiana">Ludhiana</option>
+      </select><br>
+
+      <label for="range">Range:</label>
+      <input type="range" id="range"><br>
+
+      <label for="add">Address:</label>
+      <textarea id="add" rows="3" cols="20"></textarea><br>
+
+      <label for="file">Image:</label>
+      <input type="file" id="file"><br><br>
+
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+
+</body>
+</html>

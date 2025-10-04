@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marksheet - IF Statement</title>
+    <style>
+        /* CSS for attractive styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .input-group {
+            margin: 20px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .pass {
+            background: #f0fff4;
+            border-color: #68d391;
+            color: #2f855a;
+        }
+        
+        .fail {
+            background: #fff5f5;
+            border-color: #fc8181;
+            color: #c53030;
+        }
+        
+        .conditional-info {
+            background: #e6fffa;
+            border: 2px solid #4fd1c7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #234e52;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Student Marksheet (IF Statement)</h1>
+        
+        <div class="conditional-info">
+            <strong>IF Statement:</strong> A basic conditional statement that executes code only if a condition is true. 
+            Simple and straightforward - if condition is true, do something!
+        </div>
+        
+        <div class="input-group">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" placeholder="Enter student name">
+        </div>
+        
+        <div class="input-group">
+            <label for="marks">Marks (out of 100):</label>
+            <input type="number" id="marks" placeholder="Enter marks" min="0" max="100">
+        </div>
+        
+        <button onclick="generateMarksheet()">Generate Marksheet</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // JavaScript function using IF STATEMENT
+        function generateMarksheet() {
+            // Get input values from user
+            const name = document.getElementById('studentName').value;
+            const marks = parseInt(document.getElementById('marks').value);
+            const resultDiv = document.getElementById('result');
+            
+            // Validate input
+            if (name === '' || isNaN(marks)) {
+                alert('Please enter both name and marks!');
+                return;
+            }
+            
+            // IF statement to check if student passed
+            // Only checks for pass condition (marks >= 40)
+            if (marks >= 40) {
+                // Student passed - show pass result
+                resultDiv.innerHTML = `
+                    <h2>🎉 MARKSHEET</h2>
+                    <p><strong>Student Name:</strong> ${name}</p>
+                    <p><strong>Marks:</strong> ${marks}/100</p>
+                    <p><strong>Status:</strong> PASS ✅</p>
+                    <p><strong>Congratulations!</strong> You have passed the exam!</p>
+                `;
+                resultDiv.className = 'result pass';
+            }
+            
+            // Another IF statement to check if student failed
+            if (marks < 40) {
+                // Student failed - show fail result
+                resultDiv.innerHTML = `
+                    <h2>📋 MARKSHEET</h2>
+                    <p><strong>Student Name:</strong> ${name}</p>
+                    <p><strong>Marks:</strong> ${marks}/100</p>
+                    <p><strong>Status:</strong> FAIL ❌</p>
+                    <p><strong>Better luck next time!</strong> Keep studying!</p>
+                `;
+                resultDiv.className = 'result fail';
+            }
+            
+            // Show the result
+            resultDiv.style.display = 'block';
+            
+            // Console log for learning
+            console.log(`IF Statement executed for ${name} with marks ${marks}`);
+        }
+    </script>
+</body>
+</html>

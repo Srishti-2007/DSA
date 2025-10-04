@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      background-color: white;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px 40px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+      margin-top: 10px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      margin-top: 8px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      margin-right: 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    input[type="reset"] {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form action="#" method="post">
+      <!-- Name -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <!-- Gender -->
+      <label>Gender:</label>
+      <div class="radio-group">
+        <input type="radio" name="gender" value="Male" id="male">
+        <label for="male" style="display:inline;">Male</label>
+        <input type="radio" name="gender" value="Female" id="female">
+        <label for="female" style="display:inline;">Female</label>
+      </div>
+
+      <!-- Subjects -->
+      <label>Select Subjects:</label>
+      <div class="checkbox-group">
+        <input type="checkbox" name="subject" value="Math" id="math">
+        <label for="math" style="display:inline;">Math</label><br>
+        <input type="checkbox" name="subject" value="Science" id="science">
+        <label for="science" style="display:inline;">Science</label><br>
+        <input type="checkbox" name="subject" value="English" id="english">
+        <label for="english" style="display:inline;">English</label>
+      </div>
+
+      <!-- City -->
+      <label for="city">Select City:</label>
+      <select id="city" name="city">
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chandigarh">Chandigarh</option>
+      </select>
+
+      <!-- Message -->
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" cols="30" placeholder="Write your message here..."></textarea>
+
+      <!-- Buttons -->
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </form>
+  </div>
+
+</body>
+</html>

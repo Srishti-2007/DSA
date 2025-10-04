@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Positioning</title>
+  <style>
+    /* Background Image */
+    img {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Text highlight */
+    .highlight {
+      font-weight: bold;
+      color: #ff4444;
+    }
+
+    /* Heading Style */
+    h1 {
+      color: white;
+      padding: 30px 20px 10px 20px;
+      font-size: 36px;
+    }
+
+    /* Paragraph Style */
+    p {
+      color: white;
+      padding: 0 20px 20px 20px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background image -->
+  <img src="image.png" alt="Background Image">
+
+  <!-- Foreground content -->
+  <h1>About Positioning in CSS:</h1>
+  <p>
+    CSS <code>position</code> property is used to set the type of positioning method for an element 
+    (static, relative, absolute, fixed, or sticky). 
+    <span class="highlight">It controls how elements are placed on the page.</span> 
+    Using <code>z-index</code>, you can manage which layer is on top when elements overlap.
+  </p>
+
+</body>
+</html>
