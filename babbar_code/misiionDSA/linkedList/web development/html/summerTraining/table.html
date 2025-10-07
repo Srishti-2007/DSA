@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Timetable</title>
+</head>
+<body>
+    <h2>Class Timetable</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <!-- First row with day/time heading -->
+        <tr>
+            <th>Day</th>
+            <th>9:00 - 10:00</th>
+            <th>10:00 - 11:00</th>
+            <th>11:00 - 11:15</th>
+            <th>11:15 - 12:15</th>
+            <th>12:15 - 1:15</th>
+        </tr>
+        <!-- Monday row -->
+        <tr>
+            <td>Monday</td>
+            <td>Math</td>
+            <td>Science</td>
+            <td rowspan="5" style="background-color:#eee; text-align:center;">Break</td> 
+            <!-- rowspan="5": Break cell spans 5 rows (for all weekdays) -->
+            <td>English</td>
+            <td>Computer</td>
+        </tr>
+        <!-- Tuesday row -->
+        <tr>
+            <td>Tuesday</td>
+            <td>English</td>
+            <td>Math</td>
+            <td>Science</td>
+            <td>Computer</td>
+        </tr>
+        <!-- Wednesday row with a seminar spanning 2 periods -->
+        <tr>
+            <td>Wednesday</td>
+            <td colspan="2">Seminar</td> 
+            <!-- colspan="2": Merges two cells for a double period -->
+            <td>Math</td>
+            <td>Art</td>
+        </tr>
+        <!-- Thursday row -->
+        <tr>
+            <td>Thursday</td>
+            <td>Science</td>
+            <td>Computer</td>
+            <td>English</td>
+            <td>Math</td>
+        </tr>
+        <!-- Friday row -->
+        <tr>
+            <td>Friday</td>
+            <td>Computer</td>
+            <td>Math</td>
+            <td>Science</td>
+            <td>English</td>
+        </tr>
+
+    </table>
+
+    <!-- 
+    Comments:
+    - <th> is used for heading cells.
+    - rowspan="5" merges the 'Break' cell vertically for 5 days.
+    - colspan="2" merges two time slots for "Seminar" on Wednesday.
+    -->
+
+</body>
+</html>

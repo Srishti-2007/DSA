@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        h1 {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        h2 {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-size: 2.2em;
+            margin: 40px 0 25px 0;
+            font-weight: bold;
+        }
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff5252, #ff7043);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        input[type="number"] {
+            padding: 15px 20px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            width: 250px;
+            margin: 10px;
+            background: linear-gradient(145deg, #f0f8ff, #e6f3ff);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        input[type="number"]:focus {
+            border-color: #4ecdc4;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+            transform: scale(1.02);
+        }
+        #BCA {
+            font-size: 22px;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border: 2px solid rgba(40, 167, 69, 0.2);
+        }
+        #result {
+            font-size: 24px;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border: 2px solid rgba(40, 167, 69, 0.2);
+        }
+        .task-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        .task-section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05));
+        }
+        .task-section:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.05));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task-1</h1>
+        <div class="task-section">
+            <button type="button" onclick="document.getElementById('BCA').innerHTML = Date()">
+                Click me to display Date and Time
+            </button>
+            <p id="BCA"></p>
+        </div>
+        
+        <h2>Task-2</h2>
+        <div class="task-section">
+            <h1>My JavaScript Page</h1>
+            <button onclick="sayHello()">Click here</button>
+        </div>
+        
+        <h2>Task-3</h2>
+        <div class="task-section">
+            <h2>Add any two Numbers</h2>
+            <input type="number" id="value1" placeholder="First Number"><br><br>
+            <input type="number" id="value2" placeholder="Second Number"><br><br>
+            <button onclick="sum()">Answer</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        function sayHello() {
+            console.log("Hello Welcome to BCA Class!");
+            alert("Hello Welcome to BCA Class!");
+        }
+        
+        function sum() {
+            var a = parseFloat(document.getElementById('value1').value);
+            var b = parseFloat(document.getElementById('value2').value);
+            var sum = a + b;
+            document.getElementById('result').innerText = "Sum: " + sum;
+        }
+    </script>
+</body>
+</html>

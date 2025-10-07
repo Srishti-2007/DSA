@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login and Signup Page</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #e6f0ff;
+      text-align: center;
+    }
+    h1 {
+      color: red;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+    }
+    .box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px lightgray;
+    }
+    .box img {
+      width: 100px;
+    }
+    .box input {
+      width: 90%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    .box button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .box a {
+      display: block;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>IKG Punjab Technical University</h1>
+
+  <div class="container">
+    <!-- Login Box -->
+    <div class="box">
+      <h3>Login</h3>
+      <input type="text" placeholder="Username or Email"><br>
+      <input type="password" placeholder="Password"><br>
+      <a href="#">Forgot password?</a>
+      <a href="#">Create an account</a>
+      <br>
+      <button>Login</button>
+    </div>
+
+    <!-- Signup Box -->
+    <div class="box">
+      <h3>Signup</h3>
+      <input type="text" placeholder="First Name"><br>
+      <input type="text" placeholder="Last Name"><br>
+      <input type="email" placeholder="Email Address"><br>
+      <input type="password" placeholder="Password"><br>
+      <input type="password" placeholder="Again Password"><br>
+      <a href="#">Have an account?</a>
+      <br>
+      <button>Signup</button>
+    </div>
+  </div>
+
+</body>
+</html>

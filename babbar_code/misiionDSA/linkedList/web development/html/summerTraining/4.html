@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Training Task</title>
+    <style>
+        body {
+            background-color: #b2dff5;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1a237e;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        meter {
+            width: 200px;
+            height: 20px;
+        }
+
+        iframe {
+            display: block;
+            margin: 20px 0;
+        }
+
+        audio {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <textarea rows="4" cols="40">
+This is my industrial training class. I am learning here HTML, CSS and JavaScript.
+    </textarea>
+
+    <br><br>
+
+    <h1>The button Element</h1>
+    <button type="button" onclick="alert('Hello Everyone')">CLICK</button>
+
+    <br><br>
+
+    <h1>The meter element</h1>
+    <p>The meter element is used to display a gauge:</p>
+
+    <label for="vote_a">Vote for A:</label>
+    <meter id="vote_a" value="7" min="2" max="6"></meter>
+
+    <br>
+
+    <label for="vote_b">Vote for B:</label>
+    <meter id="vote_b" value="0.6"></meter>
+
+    <p><strong>Note:</strong> The meter tag is not supported in Edge 12 (or earlier).</p>
+
+    <br><br>
+
+    <!-- YouTube Video -->
+    <iframe width="420" height="345"
+        src="https://www.youtube.com/embed/OXGznpKZ_sA?si=vl1st8HepM2odqNX">
+    </iframe>
+
+    <!-- HTML Book iframe -->
+    <iframe src="https://www.dcpehvpm.org/Content/BCA/BCA-1/Web%20Technology/the-complete-reference-html-css-fifth-edition.pdf" 
+        width="300" height="250"
+        title="CSS AND HTML">
+    </iframe>
+
+    <br><br>
+
+    <!-- Audio -->
+    <audio controls autoplay>
+        <source src="single-church-bell-2-352062.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+</body>
+</html>
