@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-While Loop Demo</title>
+    <style>
+        /* CSS for attractive styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #20b2aa;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message {
+            background: linear-gradient(90deg, #36d1dc, #5b86e5);
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .message:hover {
+            transform: rotate(2deg) scale(1.02);
+        }
+        
+        .loop-info {
+            background: #d1ecf1;
+            border: 2px solid #17a2b8;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Do-While Loop </h1>
+        <div class="loop-info">
+            <strong>Do-While Loop:</strong> A loop that executes the code first, then checks the condition. 
+            It guarantees that the code runs at least once!
+        </div>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // JavaScript code using DO-WHILE LOOP
+        // Do-while loop syntax: do { code to execute } while(condition);
+        
+        // Get the output div where we'll display our messages
+        const outputDiv = document.getElementById('output');
+        
+        // Initialize counter variable
+        let counter = 1;
+        
+        // Do-while loop to print "Welcome to my webpage" 10 times
+        do {
+            // Create a new div element for each message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            // Set the message content with counter
+            messageDiv.textContent = `${counter}. Welcome to my webpage! `;
+            
+            // Add the message to our output div
+            outputDiv.appendChild(messageDiv);
+            
+            // Important: Increment the counter
+            counter++;
+            
+            // Add animation delay
+            messageDiv.style.animationDelay = `${counter * 0.1}s`;
+            
+        } while(counter <= 10); // Check condition after executing the code
+        
+        // Console log for learning
+        console.log("Do-while loop completed! This loop always runs at least once.");
+    </script>
+</body>
+</html>

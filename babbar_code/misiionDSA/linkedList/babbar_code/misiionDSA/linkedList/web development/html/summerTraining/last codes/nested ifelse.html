@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marksheet - Nested IF-ELSE Statement</title>
+    <style>
+        /* CSS for attractive styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #20b2aa;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .input-group {
+            margin: 20px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #20b2aa;
+        }
+        
+        button {
+            background: linear-gradient(90deg, #36d1dc, #5b86e5);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .excellent {
+            background: #f0fff4;
+            border-color: #38a169;
+            color: #2f855a;
+        }
+        
+        .good {
+            background: #f7fafc;
+            border-color: #4299e1;
+            color: #2b6cb0;
+        }
+        
+        .average {
+            background: #fffaf0;
+            border-color: #ed8936;
+            color: #c05621;
+        }
+        
+        .fail {
+            background: #fff5f5;
+            border-color: #fc8181;
+            color: #c53030;
+        }
+        
+        .conditional-info {
+            background: #d1ecf1;
+            border: 2px solid #17a2b8;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Student Marksheet (Nested IF-ELSE)</h1>
+        
+        <div class="conditional-info">
+            <strong>Nested IF-ELSE Statement:</strong> IF-ELSE statements inside other IF-ELSE statements. 
+            This allows for multiple conditions and more detailed decision making. 
+            Perfect for grading systems with multiple categories!
+        </div>
+        
+        <div class="input-group">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" placeholder="Enter student name">
+        </div>
+        
+        <div class="input-group">
+            <label for="marks">Marks (out of 100):</label>
+            <input type="number" id="marks" placeholder="Enter marks" min="0" max="100">
+        </div>
+        
+        <button onclick="generateMarksheet()">Generate Detailed Marksheet</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // JavaScript function using NESTED IF-ELSE STATEMENT
+        function generateMarksheet() {
+            // Get input values from user
+            const name = document.getElementById('studentName').value;
+            const marks = parseInt(document.getElementById('marks').value);
+            const resultDiv = document.getElementById('result');
+            
+            // Validate input - First level IF
+            if (name === '' || isNaN(marks)) {
+                alert('Please enter both name and marks!');
+                return;
+            }
+            
+            // NESTED IF-ELSE structure for detailed grading
+            if (marks >= 40) {
+                // First level IF: Student passed
+                // Now nested IF-ELSE for different grades
+                
+                if (marks >= 90) {
+                    // Nested IF: Excellent grade
+                    resultDiv.innerHTML = `
+                        <h2>🏆 EXCELLENT MARKSHEET</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> A+ (Excellent)</p>
+                        <p><strong>Status:</strong> PASS ✅</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>Outstanding Performance!</strong> Keep up the excellent work! 🌟</p>
+                    `;
+                    resultDiv.className = 'result excellent';
+                } else if (marks >= 75) {
+                    // Nested ELSE-IF: Good grade
+                    resultDiv.innerHTML = `
+                        <h2>🎉 GOOD MARKSHEET</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> A (Good)</p>
+                        <p><strong>Status:</strong> PASS ✅</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>Great job!</strong> You performed very well! 👏</p>
+                    `;
+                    resultDiv.className = 'result good';
+                } else if (marks >= 60) {
+                    // Nested ELSE-IF: Above average grade
+                    resultDiv.innerHTML = `
+                        <h2>👍 ABOVE AVERAGE MARKSHEET</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> B (Above Average)</p>
+                        <p><strong>Status:</strong> PASS ✅</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>Good work!</strong> Keep improving for better grades! 📈</p>
+                    `;
+                    resultDiv.className = 'result good';
+                } else {
+                    // Nested ELSE: Average grade (40-59)
+                    resultDiv.innerHTML = `
+                        <h2>📊 AVERAGE MARKSHEET</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> C (Average)</p>
+                        <p><strong>Status:</strong> PASS ✅</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>You passed!</strong> Work harder to achieve better grades! 💪</p>
+                    `;
+                    resultDiv.className = 'result average';
+                }
+            } else {
+                // First level ELSE: Student failed
+                // Nested IF-ELSE for different fail categories
+                
+                if (marks >= 30) {
+                    // Nested IF: Close to pass
+                    resultDiv.innerHTML = `
+                        <h2>😔 MARKSHEET - CLOSE TO PASS</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> D (Close to Pass)</p>
+                        <p><strong>Status:</strong> FAIL ❌</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>Almost there!</strong> Just ${40 - marks} more marks needed to pass!</p>
+                    `;
+                    resultDiv.className = 'result fail';
+                } else if (marks >= 20) {
+                    // Nested ELSE-IF: Need improvement
+                    resultDiv.innerHTML = `
+                        <h2>📚 MARKSHEET - NEEDS IMPROVEMENT</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> E (Needs Improvement)</p>
+                        <p><strong>Status:</strong> FAIL ❌</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>Study harder!</strong> You need ${40 - marks} more marks to pass!</p>
+                    `;
+                    resultDiv.className = 'result fail';
+                } else {
+                    // Nested ELSE: Very poor performance
+                    resultDiv.innerHTML = `
+                        <h2>⚠️ MARKSHEET - VERY POOR</h2>
+                        <p><strong>Student Name:</strong> ${name}</p>
+                        <p><strong>Marks:</strong> ${marks}/100</p>
+                        <p><strong>Grade:</strong> F (Very Poor)</p>
+                        <p><strong>Status:</strong> FAIL ❌</p>
+                        <p><strong>Percentage:</strong> ${marks}%</p>
+                        <p><strong>Serious effort needed!</strong> Focus on your studies and seek help!</p>
+                    `;
+                    resultDiv.className = 'result fail';
+                }
+            }
+            
+            // Show the result
+            resultDiv.style.display = 'block';
+            
+            // Console log for learning - shows nested structure
+            console.log(`Nested IF-ELSE executed for ${name} with marks ${marks}`);
+            console.log('Nested conditions checked: Pass/Fail -> Grade categories');
+        }
+    </script>
+</body>
+</html>

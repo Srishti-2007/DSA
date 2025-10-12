@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with Validation</title>
+    <style>
+        /* CSS for attractive styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin: 25px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        input.valid {
+            border-color: #48bb78;
+            background-color: #f0fff4;
+        }
+        
+        input.invalid {
+            border-color: #f56565;
+            background-color: #fff5f5;
+        }
+        
+        .error-message {
+            color: #e53e3e;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #38a169;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        button {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .validation-info {
+            background: #e6fffa;
+            border: 2px solid #4fd1c7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #234e52;
+        }
+        
+        .form-result {
+            background: #f0fff4;
+            border: 2px solid #68d391;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+            color: #2f855a;
+        }
+        
+        .requirement {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Registration Form </h1>
+        
+        <!-- <div class="validation-info">
+            <strong>Form Validation:</strong> JavaScript validation ensures user enters correct data format.
+            We'll validate Email, Phone Number, PAN Card, and Aadhaar Card using regular expressions (regex patterns).
+        </div> -->
+        
+        <form id="registrationForm">
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                <div class="error-message" id="nameError">Please enter a valid name (only letters and spaces)</div>
+                <div class="success-message" id="nameSuccess">✓ Valid name</div>
+            </div>
+            
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+                <div class="requirement">Format: example@domain.com</div>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+                <div class="success-message" id="emailSuccess">✓ Valid email address</div>
+            </div>
+            
+            <!-- Phone Number Field -->
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                <div class="requirement">Format: 10 digits (e.g., 9876543210)</div>
+                <div class="error-message" id="phoneError">Please enter a valid 10-digit phone number</div>
+                <div class="success-message" id="phoneSuccess">✓ Valid phone number</div>
+            </div>
+            
+            <!-- PAN Card Field -->
+            <div class="form-group">
+                <label for="pan">PAN Card Number:</label>
+                <input type="text" id="pan" name="pan" placeholder="Enter your PAN card number" maxlength="10">
+                <div class="requirement">Format: 5 letters + 4 numbers + 1 letter (e.g., ABCDE1234F)</div>
+                <div class="error-message" id="panError">Please enter a valid PAN card number</div>
+                <div class="success-message" id="panSuccess">✓ Valid PAN card number</div>
+            </div>
+            
+            <!-- Aadhaar Card Field -->
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Card Number:</label>
+                <input type="text" id="aadhaar" name="aadhaar" placeholder="Enter your Aadhaar card number" maxlength="12">
+                <div class="requirement">Format: 12 digits (e.g., 123456789012)</div>
+                <div class="error-message" id="aadhaarError">Please enter a valid 12-digit Aadhaar number</div>
+                <div class="success-message" id="aadhaarSuccess">✓ Valid Aadhaar number</div>
+            </div>
+            
+            <button type="submit">Submit Registration</button>
+        </form>
+        
+        <div id="formResult" class="form-result"></div>
+    </div>
+
+    <script>
+        // Regular expressions for validation
+        const validationPatterns = {
+            // Name: Only letters and spaces, at least 2 characters
+            name: /^[a-zA-Z\s]{2,}$/,
+            
+            // Email: Standard email format
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            
+            // Phone: Exactly 10 digits
+            phone: /^[6-9]\d{9}$/,
+            
+            // PAN: 5 letters + 4 numbers + 1 letter (Indian PAN format)
+            pan: /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/,
+            
+            // Aadhaar: Exactly 12 digits
+            aadhaar: /^[0-9]{12}$/
+        };
+        
+        // Get form elements
+        const form = document.getElementById('registrationForm');
+        const inputs = {
+            fullName: document.getElementById('fullName'),
+            email: document.getElementById('email'),
+            phone: document.getElementById('phone'),
+            pan: document.getElementById('pan'),
+            aadhaar: document.getElementById('aadhaar')
+        };
+        
+        // Add event listeners for real-time validation
+        Object.keys(inputs).forEach(fieldName => {
+            inputs[fieldName].addEventListener('input', function() {
+                validateField(fieldName, this.value);
+            });
+            
+            inputs[fieldName].addEventListener('blur', function() {
+                validateField(fieldName, this.value);
+            });
+        });
+        
+        // Function to validate individual field
+        function validateField(fieldName, value) {
+            const input = inputs[fieldName];
+            const errorElement = document.getElementById(fieldName + 'Error');
+            const successElement = document.getElementById(fieldName + 'Success');
+            
+            // Special handling for different field types
+            let isValid = false;
+            let errorMessage = '';
+            
+            if (fieldName === 'fullName') {
+                isValid = validationPatterns.name.test(value);
+                errorMessage = 'Please enter a valid name (only letters and spaces, minimum 2 characters)';
+            } else if (fieldName === 'email') {
+                isValid = validationPatterns.email.test(value);
+                errorMessage = 'Please enter a valid email address (e.g., example@domain.com)';
+            } else if (fieldName === 'phone') {
+                isValid = validationPatterns.phone.test(value);
+                errorMessage = 'Please enter a valid 10-digit phone number starting with 6-9';
+            } else if (fieldName === 'pan') {
+                // Convert to uppercase for validation
+                value = value.toUpperCase();
+                input.value = value;
+                isValid = validationPatterns.pan.test(value);
+                errorMessage = 'Please enter a valid PAN card number (5 letters + 4 numbers + 1 letter)';
+            } else if (fieldName === 'aadhaar') {
+                isValid = validationPatterns.aadhaar.test(value);
+                errorMessage = 'Please enter a valid 12-digit Aadhaar number';
+            }
+            
+            // Update UI based on validation result
+            if (value === '') {
+                // Empty field
+                input.classList.remove('valid', 'invalid');
+                errorElement.style.display = 'none';
+                successElement.style.display = 'none';
+            } else if (isValid) {
+                // Valid field
+                input.classList.add('valid');
+                input.classList.remove('invalid');
+                errorElement.style.display = 'none';
+                successElement.style.display = 'block';
+            } else {
+                // Invalid field
+                input.classList.add('invalid');
+                input.classList.remove('valid');
+                errorElement.textContent = errorMessage;
+                errorElement.style.display = 'block';
+                successElement.style.display = 'none';
+            }
+            
+            return isValid;
+        }
+        
+        // Form submission handler
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Validate all fields
+            let allValid = true;
+            const formData = {};
+            
+            Object.keys(inputs).forEach(fieldName => {
+                const value = inputs[fieldName].value;
+                const isValid = validateField(fieldName, value);
+                
+                if (!isValid || value === '') {
+                    allValid = false;
+                }
+                
+                formData[fieldName] = value;
+            });
+            
+            // Show result
+            const resultDiv = document.getElementById('formResult');
+            
+            if (allValid) {
+                // All fields are valid
+                resultDiv.innerHTML = `
+                    <h3>🎉 Registration Successful!</h3>
+                    <p><strong>Name:</strong> ${formData.fullName}</p>
+                    <p><strong>Email:</strong> ${formData.email}</p>
+                    <p><strong>Phone:</strong> ${formData.phone}</p>
+                    <p><strong>PAN:</strong> ${formData.pan}</p>
+                    <p><strong>Aadhaar:</strong> ${formData.aadhaar}</p>
+                    <p>✅ All information has been validated successfully!</p>
+                `;
+                resultDiv.style.display = 'block';
+                
+                // Console log for learning
+                console.log('Form validation successful!', formData);
+            } else {
+                // Some fields are invalid
+                resultDiv.innerHTML = `
+                    <h3>❌ Validation Failed</h3>
+                    <p>Please correct the errors above and try again.</p>
+                `;
+                resultDiv.style.backgroundColor = '#fff5f5';
+                resultDiv.style.borderColor = '#fc8181';
+                resultDiv.style.color = '#c53030';
+                resultDiv.style.display = 'block';
+                
+                // Console log for learning
+                console.log('Form validation failed. Please check all fields.');
+            }
+        });
+        
+        // Console log for learning about validation patterns
+        console.log('Validation patterns used:', validationPatterns);
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Form Example</title>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form action="#" method="post">
+        <!-- Name field -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <!-- Email field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <!-- Gender radio buttons -->
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+        <!-- Subjects checkbox -->
+        <label>Select Subjects:</label><br>
+        <input type="checkbox" name="subject" value="Math"> Math<br>
+        <input type="checkbox" name="subject" value="Science"> Science<br>
+        <input type="checkbox" name="subject" value="English"> English<br><br>
+        <!-- Dropdown list -->
+        <label for="city">Select City:</label>
+        <select id="city" name="city">
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Chandigarh">Chandigarh</option>
+        </select>
+        <br><br>
+        <!-- Textarea -->
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="30"></textarea>
+        <br><br>
+        <!-- Submit and Reset buttons -->
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+    <!-- 
+    Comments:
+    - <form> defines the form.
+    - action="#" means no server is linked (used for practice).
+    - method="post" sends data securely.
+    - <label> defines the text for input fields.
+    - <input> is used for different types of fields (text, email, radio, checkbox).
+    - <select> creates dropdown, <option> defines each choice.
+    - <textarea> allows long text input.
+    -->
+</body>
+</html>

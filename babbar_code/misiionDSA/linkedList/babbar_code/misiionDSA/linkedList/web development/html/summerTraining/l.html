@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Positioning</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* 👇 yahan background image lagai gayi hai */
+            background-image: url('background.jpg'); /* apne image ka naam yahan do */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent dark background to make text readable */
+            margin: 50px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: white;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #222;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #00ffff;
+        }
+
+        span.highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        a {
+            color: #ccc;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h1>About Positioning in CSS:</h1>
+    <p>
+        CSS <code>position</code> property is used to set the type of positioning method for an element 
+        (<a href="#">static</a>, <a href="#">relative</a>, <a href="#">absolute</a>, <a href="#">fixed</a>, or <a href="#">sticky</a>). 
+        <span class="highlight">It controls how elements are placed on the page.</span> Using 
+        <code>z-index</code>, you can manage which layer is on top when elements overlap.
+    </p>
+</div>
+
+</body>
+</html>
